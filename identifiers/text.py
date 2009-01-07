@@ -37,7 +37,7 @@ def bytes(n, options, suf=False):
     >>> print bytes(1, "b", suf=True)
     1B
     >>> print bytes(1, "k", suf=True)
-    1KB
+    0KB
     >>> print bytes(1, "3")
     1
     >>> print bytes(1024, "3")
@@ -53,7 +53,9 @@ def bytes(n, options, suf=False):
     if result.endswith(".00"):
         result = result.rstrip("0")[:-1] #XXX 1.00, 10.0, 100
     if suf:
-        result += "BKMGT"[exponent] #XXX KB, MB, GB, TB
+        result += "BKMGT"[exponent]
+        if exponent:
+            result += "B"
     return result
 
 @identifier('chr', int, returns=str)
