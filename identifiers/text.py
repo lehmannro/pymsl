@@ -80,6 +80,22 @@ def m_str(text, n):
     """
     return text * n
 
+@identifier(str, str, returns=int)
+def count(string, *substrings):
+    """Returns the number of times substring occurs in string.
+
+    >>> count("hello", "el")
+    1
+    >>> count("hello", "l")
+    2
+    >>> count("hello", "l", "l")
+    4
+    >>> count("ababa", "aba")
+    1
+
+    """
+    return sum(string.count(substring) for substring in substrings)
+
 @identifier(str, int, int, int, int, returns=str)
 def base(n, inbase, outbase, zeropad=0, precision=0):
     """Converts number N from inbase to outbase.
