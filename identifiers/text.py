@@ -58,23 +58,23 @@ def bytes(n, options, suf=False):
             result += "B"
     return result
 
-@identifier('chr', int, returns=str)
-def m_chr(n):
+@identifier(int, returns=str)
+def chr_(n):
     """Returns the character with ASCII number N.
 
-    >>> m_chr(65)
+    >>> chr_(65)
     'A'
-    >>> m_chr(42)
+    >>> chr_(42)
     '*'
 
     """
     return chr(n)
 
-@identifier('str', str, int, returns=str)
-def m_str(text, n):
+@identifier(str, int, returns=str)
+def str_(text, n):
     """Returns text repeated N times.
 
-    >>> print m_str("ho", 3)
+    >>> print str_("ho", 3)
     hohoho
 
     """

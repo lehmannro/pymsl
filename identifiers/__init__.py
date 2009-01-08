@@ -11,13 +11,11 @@ def identifier(*args, **kwargs):
     args = list(args)
     options = defaults.copy()
     options.update(kwargs)
-    if args and isinstance(args[0], str):
-        options['name'] = args.pop(0)
     def deco(func):
         pargs, varargs, varkw, defaults = inspect.getargspec(func)
         func.return_annotation = kwargs
         # register
-        name = options.get('name', func.__name__)
+        name = func.__name__.rstrip("_")
         #XXX check for name
         all[name] = func
         #XXX add mirc interface (str-only call)

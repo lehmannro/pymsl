@@ -2,13 +2,13 @@
 
 from pymsl.identifiers import identifier
 
-@identifier('abs', int, returns=int)
-def m_abs(n):
+@identifier(int, returns=int)
+def abs_(n):
     """Returns the absolute value of number N.
 
-    >>> m_abs(5)
+    >>> abs_(5)
     5
-    >>> m_abs(-1)
+    >>> abs_(-1)
     1
 
     """
