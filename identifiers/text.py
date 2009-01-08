@@ -96,6 +96,16 @@ def count(string, *substrings):
     """
     return sum(string.count(substring) for substring in substrings)
 
+@identifier(str, returns=int)
+def len_(text):
+    """Returns the length of text.
+
+    >>> len("#mIRC")
+    5
+
+    """
+    return len(text)
+
 @identifier(str, returns=bool)
 def islower(text):
     """Returns True if text is all lower case.
