@@ -96,6 +96,54 @@ def count(string, *substrings):
     """
     return sum(string.count(substring) for substring in substrings)
 
+@identifier(str, returns=bool)
+def islower(text):
+    """Returns True if text is all lower case.
+
+    >>> islower("abc")
+    True
+    >>> islower("abC")
+    False
+    >>> islower("") == None
+    True
+    >>> islower("abc_")
+    True
+    >>> islower("_")
+    True
+    >>> islower("ü")
+    True
+    >>> islower("Ü")
+    True
+
+    """
+    if not text:
+        return None
+    return not any(chr(nchar) in text for nchar in xrange(ord("A"), ord("Z")+1))
+
+@identifier(str, returns=bool)
+def isupper(text):
+    """Returns True if text is all upper case.
+
+    >>> isupper("ABC")
+    True
+    >>> isupper("ABc")
+    False
+    >>> isupper("") == None
+    True
+    >>> isupper("ABC_")
+    True
+    >>> isupper("_")
+    True
+    >>> isupper("ü")
+    True
+    >>> isupper("Ü")
+    True
+
+    """
+    if not text:
+        return None
+    return not any(chr(nchar) in text for nchar in xrange(ord("a"), ord("z")+1))
+
 @identifier(str, int, int, int, int, returns=str)
 def base(n, inbase, outbase, zeropad=0, precision=0):
     """Converts number N from inbase to outbase.
